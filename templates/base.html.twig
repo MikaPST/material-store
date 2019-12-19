@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titleContent %}Material Store{% endblock %}</title>
+
+    {{ encore_entry_link_tags('app_css') }}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body class=" bg-secondary">
+{% block header %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+        <a class="navbar-brand" href="#">Material Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path('category_index') }}">Home<span
+                                class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('category_index') }}">Categorie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('product_index') }}">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('user_index') }}">Users</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav align-self-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('user_new') }}">New account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}">Sign in</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+        {% block subHeader %}{% endblock %}
+    </span>
+        </div>
+    </nav>
+<div class="container">
+
+
+    {% endblock %}
+
+    {% block body %}{% endblock %}
+    {% block footer %}
+</div>
+    <div class="card border border-dark d-flex flex-row-reverse bd-highlight sticky-bottom">
+        <div class="card-body bg-dark">
+            <blockquote class="blockquote mb-0">
+                <p class="text-secondary position-center"></p>
+                <footer class="blockquote-footer">@Michael Pastor<cite title="Source Title"></cite></footer>
+            </blockquote>
+        </div>
+    </div>
+{% endblock %}
+</div>
+
+{{ encore_entry_link_tags('app_js') }}
+
+
+</body>
+</html>
