@@ -1,5 +1,6 @@
-<div class="container w-50 p-3">
+<div class="container w-50 p-3 bg-dark border border-light rounded-lg" style="color: white !important">
 {{ form_start(form) }}
+    <h1 class="text-success text-center">Create new User</h1>
     {{ form_widget(form) }}
     <button class="btn btn-success">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -20,19 +20,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\Email(message = "The email '{{ value }}' is not a valid email.")
      */
     private $email;
 
     /**
-     * @ORM\Column(type="json")
-     */
-    private $roles = [];
-
-    /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\Regex("#(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^a-zA-Z\d])#", message = "Your password must have at least 8 char and contain 1 uppercase, 1 number and 1 special char")
      */
     private $password;
 
@@ -45,6 +38,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $surname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $role;
 
     public function getId(): ?int
     {
@@ -78,18 +76,11 @@ class User implements UserInterface
      */
     public function getRoles(): array
     {
-        $roles = $this->roles;
+        $roles = [$this->role];
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
-    }
-
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
     }
 
     /**
@@ -100,7 +91,7 @@ class User implements UserInterface
         return (string) $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
 
@@ -144,6 +135,18 @@ class User implements UserInterface
     public function setSurname(string $surname): self
     {
         $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): self
+    {
+        $this->role = $role;
 
         return $this;
     }

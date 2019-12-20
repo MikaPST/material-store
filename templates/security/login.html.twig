@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <br method="post">
+    <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -13,10 +13,10 @@
             You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-    <div class="container w-50 p-3">
+    <div class="container w-50 p-3 bg-dark border border-light rounded-lg">
 
 
-        <h1 class="h2 mb-3 font-weight-normal text-warning">Please sign in</h1>
+        <h1 class="h2 mb-3 font-weight-normal text-warning text-center">Please sign in</h1>
         <label class="text-white" for="inputEmail">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required
                autofocus>
@@ -39,6 +39,13 @@
         </button>
         </form>
 
-
+    </div>
+    <div class="container">
+        <div class="p-4">
+            <a class="btn btn-dark " href="{{ path('category_index') }}">back home</a>
+        </div>
+        <div class="p-4">
+            <a class="btn btn-success " href="{{ path('user_new') }}">New account</a>
+        </div>
     </div>
 {% endblock %}

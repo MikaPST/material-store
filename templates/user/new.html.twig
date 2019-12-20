@@ -4,10 +4,10 @@
 
 {% block body %}
 {#{% block stylesheets %}{% endblock %}#}
-    <h1 class="text-white">Create new User</h1>
-<table class="table container w-50 p-3 bg-light border border-light rounded-lg mx-auto">
+<table class="table container w-50 p-3 border border-light rounded-lg mx-auto" style="margin-top: 8em;">
     {{ include('user/_form.html.twig') }}
-
-    <a class="btn btn-dark" href="{{ path('user_index') }}">back to list</a>
+    <div class="d-flex justify-content-center p-4">
+    <a class="btn btn-dark " href="{{ path('user_index') }}">back to list</a>
+    </div>
 </table>
 {% endblock %}
