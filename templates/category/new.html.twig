@@ -3,9 +3,10 @@
 {% block title %}New Category{% endblock %}
 
 {% block body %}
-    <h1>Create new Category</h1>
-
+    <h1 class="text-white">Create new Category</h1>
+<table class="table container w-50 p-3 bg-light border border-light rounded-lg mx-auto">
     {{ include('category/_form.html.twig') }}
 
-    <a href="{{ path('category_index') }}">back to list</a>
+    <a class="btn btn-dark" href="{{ path('category_index') }}">back to list</a>
+</table>
 {% endblock %}
